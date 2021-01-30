@@ -1,6 +1,6 @@
 import pyfiglet as figlet
 import click as click
-from project import Project
+from project import Project, ApplicationRunner
 
 def print_app_name(app_name):
     figlet_object = figlet.Figlet(font='slant')
@@ -11,7 +11,7 @@ def create_new_project(project_name):
     new_project = Project(project_name)
 
 def run_project(project_name):
-    print(project_name)
+    run = ApplicationRunner(project_name)
 
 @click.command()
 @click.argument('command', type=str)
