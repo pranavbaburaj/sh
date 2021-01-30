@@ -1,5 +1,6 @@
 import os
 import json, logging
+from error import error_logger
 
 class ApplicationRunner():
     def __init__(self, app_name):
@@ -18,7 +19,7 @@ class ApplicationRunner():
             else:
                 file_path = os.path.join(os.getcwd(), app, entry)
         else:
-            logging.error("Cannot run the project")
+            error_logger("Cannot run the project")
 
         print(file_path)
 
@@ -44,7 +45,7 @@ class ApplicationRunner():
             with open(project_file, "r") as reader:
                 return json.load(reader)
         else:
-            logging.error("It seems that the directory is not a project")
+            error_logger("It seems that the directory is not a project")
             return None
 
     def get_entry_point(self, content):
@@ -56,5 +57,5 @@ class ApplicationRunner():
             if 'entry-point' in content:
                 return content['entry-point']
             else:
-                print("Aborted:Cannot find entry point")
+                error_logger("Aborted:Cannot find entry point")
                 return None

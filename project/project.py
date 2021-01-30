@@ -1,5 +1,6 @@
 import os, uuid
 import json
+from error import error_logger
 
 class Project():
     def __init__(self, project_name):
@@ -15,7 +16,7 @@ class Project():
             os.mkdir(self.project_dir)
             os.mkdir(os.path.join(self.project_dir, "mod"))
         else:
-            print("folder already exists")
+            error_logger("folder already exists")
         return True
 
     def create_project_config(self):
