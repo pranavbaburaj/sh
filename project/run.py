@@ -1,6 +1,7 @@
 import os
 import json, logging
 from error import error_logger
+from lang.lexer import LexicalAnalyser
 
 class ApplicationRunner():
     def __init__(self, app_name):
@@ -21,7 +22,19 @@ class ApplicationRunner():
         else:
             error_logger("Cannot run the project")
 
-        print(file_path)
+        self.tokens = []
+        file_data = self.read_file(file_path).split("\n")
+        for index, line in enumerate(file_data):
+            lexer = LexicalAnalyser(line)
+            self.tokens.append(lexer.start_lexical_evaluation())
+        print(self.tokens)
+
+    def read_file(self, path):
+        if os.path.exists(path):
+            with open(path, "r") as reader:
+                return reader.read()
+        else:
+            error_logger("Cannot find entry point")
 
     def get_project_entry_point(self, app_name):
         if app_name == ".":
