@@ -23,4 +23,4 @@ SOFTWARE.
 
 """
 
-from .os import OperatingSystem
+from .os import OperatingSystem, list_directories
