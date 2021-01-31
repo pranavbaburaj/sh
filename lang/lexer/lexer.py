@@ -46,7 +46,6 @@ class LexicalAnalyser():
                             n_dir_p = os.path.join(current_dir, enter_dir)
                             if os.path.isdir(n_dir_p):
                                 current_dir = n_dir_p
-                                pass
                             else:
                                 error_logger("The path is not a directory")
                         else:
@@ -60,7 +59,6 @@ class LexicalAnalyser():
             elif self.current in token:
                 self.token_values.append(token[self.current])
             else:
-                # add an invalid aexception
                 pass
             self.pos += 1
             self.current = LexicalAnalyser.set_current_character(self.data, self.pos)
