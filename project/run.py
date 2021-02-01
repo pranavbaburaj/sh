@@ -27,7 +27,6 @@ class ApplicationRunner():
         for index, line in enumerate(file_data):
             lexer = LexicalAnalyser(line)
             self.tokens.append(lexer.start_lexical_evaluation())
-        print(self.tokens)
 
     def read_file(self, path):
         if os.path.exists(path):
