@@ -4,34 +4,53 @@ You can use the [editor on GitHub](https://github.com/pranavbaburaj/sh/edit/gh-p
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+# Sh
+Sh is a minimal shell scripting language with a very few number of commands
+## How to set it up?
+Clone the git repository
+`git clone https://github.com/pranavbaburaj/sh.git`
+and run
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- Create an app named data
+`python -B main.py new data`
+- Run the app
+- ```python -B main.py run data```
 
-```markdown
-Syntax highlighted code block
+## How to use it ?
+All the commands that you can use with sh are listed down below
 
-# Header 1
-## Header 2
-### Header 3
+-  Create a new project
+	```python -B main.py new <project-name>```
+ - Run the project
+	 if you are on the parent directory run
+	 ```python -B main.py run <project-name>```
+	 if you are on the project directory , run:
+	 ```python -B main.py run .```
+ - Download packages
+		Apped the url in to the `packages` field in the `<project-name>.json` file . get into the project directory
+		and run `python -B main.py get . `
+		You will see the package in the `<project-name>/mod` directory
+	
+### Shell commands
+ - Get the list of files and folder : `ls` or `dir`
+ - Open up the current directory in file explorer : `explorer` or `file`
+ - Get into a directory : `cd:<dir-name>`
+ - Remove a directory or file : `rm:<file-name>`
+ - Create a directory : `mkdir:<dir-name>`
+ - Create a file : `touch:<file-name>`
+ - Search duckduckgo : `search:<search>`
+ Example : `search:hello-world`
+ spaces are represented by (-)
+ - say something : `say:<text-to-say>` 
+ - Current working directory : `path` or `cwd`
+ - The directory basename : `directory`
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pranavbaburaj/sh/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+<hr>
+<div align="center">
+if you find any issues, report <a href="https://github.com/pranavbaburaj/sh/issues">
+here</a>
+</div>
+<hr>
+<div align="center">
+  Created by <a style="text-decoration:none;" href="https://github.com/pranavbaburaj">Pranav Baburaj</a>
+</div>
