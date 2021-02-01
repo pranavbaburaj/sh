@@ -1,0 +1,11 @@
+ls
+
+mkdir:data
+
+touch:file
+
+cd:folder-name
+
+say:helloworld
+
+search:hai-world
