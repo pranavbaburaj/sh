@@ -33,7 +33,7 @@ All the commands that you can use with sh are listed down below
  - Create a directory : `mkdir:<dir-name>`
  - Create a file : `touch:<file-name>`
  - Search duckduckgo : `search:<search>`
- Example : `search hello-world`
+ Example : `search:hello-world`
  spaces are represented by (-)
  - say something : `say:<text-to-say>` 
  - Current working directory : `path` or `cwd`
