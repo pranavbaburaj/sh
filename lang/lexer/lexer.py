@@ -7,6 +7,8 @@ from clint.textui import colored as color
 from error import error_logger
 import pyttsx3
 
+import datetime
+
 current_dir = os.getcwd()
 
 engine = pyttsx3.init()
@@ -73,6 +75,27 @@ class LexicalAnalyser():
                             os.rmdir(filename)
                         except:
                             error_logger("Cannot find specified file")
+                else:
+                    error_logger("Insufficient arguments")
+            elif "mkdir" in self.current.split(":"):
+                data = self.current.split(":")
+                if data[0] == "mkdir" and len(data) > 1:
+                    folder = str(data[1]).replace(" ", "_")
+                    if folder in os.listdir(current_dir):
+                        error_logger("File or folder already exists")
+                    else:
+                        os.mkdir(folder)
+                else:
+                    error_logger("Insufficient arguments")
+            elif "touch" in self.current.split(":"):
+                data = self.current.split(":")
+                if data[0] == "touch" and len(data) > 1:
+                    filename = str(data[1]).replace(" ", "_")
+                    if filename in os.listdir(current_dir):
+                        error_logger("File or folder already exists")
+                    else:
+                        with open(filename, "w") as file:
+                            file.write(f"Created on {str(datetime.date.today())}")
                 else:
                     error_logger("Insufficient arguments")
             elif "search" in self.current.split(":"):
