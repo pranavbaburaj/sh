@@ -1,19 +1,29 @@
 import pyfiglet as figlet
 import click as click
 from project import Project, ApplicationRunner
+
+# The application package manager
+# get
 from package import PackageManager
 
+# print out the application name
 def print_app_name(app_name):
     figlet_object = figlet.Figlet(font='slant')
     return figlet_object.renderText(str(app_name))
 
+# call the project class
+# and create a new project
 def create_new_project(project_name):
     print(print_app_name(project_name))
     new_project = Project(project_name)
 
+# call teh run class
+# and run the specified project
 def run_project(project_name):
     run = ApplicationRunner(project_name)
 
+# call the package manager
+# and install packages
 def get_package(package):
     package_manager = PackageManager(package)
 

@@ -1,5 +1,8 @@
 import os, uuid
 import json
+
+# local imports
+
 from error import error_logger
 
 class Project():
@@ -12,6 +15,11 @@ class Project():
         self.create_entry_point()
 
     def create_project_directory(self):
+        """
+        => Check if the project directory exists, an d
+        if it exists throw out an error
+        else create the directory
+        """
         if self.project_name not in os.listdir(os.getcwd()):
             os.mkdir(self.project_dir)
             os.mkdir(os.path.join(self.project_dir, "mod"))
@@ -31,7 +39,12 @@ class Project():
                 config_file,
                 indent=6
             )
+
     def create_entry_point(self):
+        """
+        Create the entry point
+        file
+        """
         entry_point_path = os.path.join(self.project_dir, f"{self.project_name}.lss")
         with open(entry_point_path, "w") as entry_point:
             entry_point.write(" ")

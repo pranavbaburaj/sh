@@ -39,6 +39,10 @@ class LexicalAnalyser():
             elif self.current == "file" or self.current == "explorer":
                 browser.open(current_dir)
             elif "cd" in self.current.split(":"):
+                """
+                => cd command is the array splitted by the
+                => command = cd_command[0] ; value = cd_command[1]
+                """
                 cd_command = self.current.split(":")
                 if len(cd_command) > 1:
                     enter_dir = cd_command[1]
