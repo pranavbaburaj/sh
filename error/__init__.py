@@ -25,7 +25,7 @@ SOFTWARE.
 
 from clint import textui as textui
 
+
 def error_logger(error_statement):
     print(textui.colored.red(f"Error:{error_statement}"))
     return error_statement
-

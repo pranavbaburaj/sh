@@ -5,6 +5,7 @@ import json, logging
 from error import error_logger
 from lang.lexer import LexicalAnalyser
 
+
 class ApplicationRunner():
     def __init__(self, app_name):
         # the project name
@@ -57,16 +58,10 @@ class ApplicationRunner():
         of the project
         """
         if app_name == ".":
-            return os.path.join(
-                os.getcwd(),
-                f"{os.path.basename(os.getcwd())}.json"
-            )
+            return os.path.join(os.getcwd(),
+                                f"{os.path.basename(os.getcwd())}.json")
         else:
-            return os.path.join(
-                os.getcwd(),
-                app_name,
-                f"{app_name}.json"
-            )
+            return os.path.join(os.getcwd(), app_name, f"{app_name}.json")
 
     def get_file_content(self, project_file):
         """

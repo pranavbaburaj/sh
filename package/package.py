@@ -2,6 +2,7 @@ import os, json
 from error import error_logger
 import requests
 
+
 def url_is_secure(data):
     """
     => Check if the passed in url is a secure
@@ -9,6 +10,7 @@ def url_is_secure(data):
     => based on whether the url starts with https or https://
     """
     return data.startswith("https://")
+
 
 class PackageManager():
     def __init__(self, search_for_packages):
@@ -22,11 +24,8 @@ class PackageManager():
         """
         if package_dir == ".":
             return self.read_all_packages(
-                os.path.join(
-                    os.getcwd(),
-                    f"{os.path.basename(os.getcwd())}.json"
-                )
-            )
+                os.path.join(os.getcwd(),
+                             f"{os.path.basename(os.getcwd())}.json"))
         else:
             return [package_dir]
 
@@ -56,7 +55,7 @@ class PackageManager():
         installed_packages = []
         module_path = os.path.join(os.getcwd(), "mod")
 
-        # create the module directory 
+        # create the module directory
         # if the directory does'nt exist
         if not os.path.exists(module_path):
             os.mkdir(module_path)
@@ -78,12 +77,13 @@ class PackageManager():
                     data = requests.get(package)
                     project_path = os.path.basename(package)
                     dir_path = project_path.split(".")[0]
-                    
+
                     if dir_path in os.listdir(module_path):
                         pass
                     else:
                         os.mkdir(os.path.join(module_path, dir_path))
-                        file_path = os.path.join(module_path, dir_path, project_path)
+                        file_path = os.path.join(module_path, dir_path,
+                                                 project_path)
 
                         with open(file_path, "w") as writer:
                             writer.write(str(data.raw))
@@ -93,13 +93,5 @@ class PackageManager():
                     error_logger("Failed to install")
                 print(f"INSTALLED:{installed_packages}")
             else:
-                error_logger("Packages should be hosted on a secure connection")
-
-
-
-
-
-
-
-
-
+                error_logger(
+                    "Packages should be hosted on a secure connection")

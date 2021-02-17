@@ -13,6 +13,7 @@ current_dir = os.getcwd()
 
 engine = pyttsx3.init()
 
+
 class LexicalAnalyser():
     def __init__(self, data):
         self.data = data.split(" ")
@@ -20,7 +21,6 @@ class LexicalAnalyser():
         self.exceptions = []
         self.token_values = []
         self.current = LexicalAnalyser.set_current_character(data, self.pos)
-
 
     @staticmethod
     def set_current_character(data, pos):
@@ -32,7 +32,8 @@ class LexicalAnalyser():
     def start_lexical_evaluation(self):
         global current_dir
 
-        self.current = LexicalAnalyser.set_current_character(self.data, self.pos)
+        self.current = LexicalAnalyser.set_current_character(
+            self.data, self.pos)
         while self.current is not None:
             if self.current == " ":
                 pass
@@ -95,7 +96,8 @@ class LexicalAnalyser():
                         error_logger("File or folder already exists")
                     else:
                         with open(filename, "w") as file:
-                            file.write(f"Created on {str(datetime.date.today())}")
+                            file.write(
+                                f"Created on {str(datetime.date.today())}")
                 else:
                     error_logger("Insufficient arguments")
             elif "search" in self.current.split(":"):
@@ -123,5 +125,6 @@ class LexicalAnalyser():
             else:
                 pass
             self.pos += 1
-            self.current = LexicalAnalyser.set_current_character(self.data, self.pos)
+            self.current = LexicalAnalyser.set_current_character(
+                self.data, self.pos)
         return self.token_values
