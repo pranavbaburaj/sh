@@ -1,0 +1,5 @@
+clint
+pyttsx3
+requests
+pyfiglet
+click
