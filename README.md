@@ -1,4 +1,4 @@
-# Sh [Development Paused]
+# Sh [ Language rewrite ]
 Sh is a minimal shell scripting language with a very few number of commands
 ## How to set it up?
 Clone the git repository
