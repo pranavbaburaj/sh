@@ -1,5 +1,5 @@
 # Sh [ Language rewrite ]
-Sh is a minimal shell scripting language with a very few number of commands
+> A simple shell scripting language with a very small number of basic shell commands.
 ## How to set it up?
 Clone the git repository
 `git clone https://github.com/pranavbaburaj/sh.git`
